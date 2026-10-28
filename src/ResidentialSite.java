@@ -4,8 +4,13 @@ public class ResidentialSite extends Site {
     }
 
     double getBillableAmount(){
-        double base = _units * _rate;
+        double base = getBaseAmount();
         double tax = base * Site.TAX_RATE;
         return base + tax;
+    }
+
+    protected double getBaseAmount() {
+        double base = _units * _rate;
+        return base;
     }
 }
